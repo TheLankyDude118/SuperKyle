@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 2;
     [SerializeField] private float degrees;
     private void Update()
     {
