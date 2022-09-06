@@ -7,6 +7,9 @@ public class PlayerLife : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D solidObj;
+
+    public CameraControl cam;
+
     private void Start()
     {
         solidObj = GetComponent<Rigidbody2D>();
@@ -23,6 +26,7 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
+        cam.movingCam = false;
         anim.SetTrigger("death");
         solidObj.bodyType = RigidbodyType2D.Static;
     }

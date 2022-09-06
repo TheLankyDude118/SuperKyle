@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Can
   - Trap
+  - CamLock
   layers:
   - Default
   - TransparentFX

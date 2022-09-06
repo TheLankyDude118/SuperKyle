@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     private enum MoveType {idle, running, jumping, falling}
 
+    public CameraControl cam;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -76,5 +78,20 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded()
     {
         return Physics2D.BoxCast(collision.bounds.center, collision.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);            // (position, size, rotation, offset direction, offset amount, collision layer to detect)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("CamLock"))
+        {
+            cam.movingCam = false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("CamLock"))
+        {
+            cam.movingCam = true;
+        }
     }
 }
